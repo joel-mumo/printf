@@ -5,11 +5,10 @@
  * @x: variable to the function
  * Return: The function
  */
-int (*get_func(char x))(va_list)
+int (*get_func(char s))(va_list)
 {
-	int i = 0;
 
-	spec arr[] = {
+	op_t arr[] = {
 		{"c", print_c},
 		{"s", print_s},
 		{"%", print_percent},
@@ -17,11 +16,14 @@ int (*get_func(char x))(va_list)
 		{"i", print_i},
 		{NULL, NULL}
 	};
-	while (arr[i].valid)
+	int i = 0;
+
+	while (arr[i].spec != NULL)
 	{
-		if (x == arr[i].valid[0])
-			return (arr[i].f);
 		i++;
+
+		if (*arr[i].spec == s)
+			return (arr[i].f);
 	}
 	return (NULL);
 }
