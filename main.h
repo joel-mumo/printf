@@ -18,4 +18,6 @@ typedef struct op
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int (*get_func(char x))(va_list);
+
 #endif/*MAIN_H*/
