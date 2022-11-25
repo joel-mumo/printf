@@ -1,4 +1,4 @@
-#include "main.h"i
+#include "main.h"
 
 /**
  * print_c - prints character
@@ -7,7 +7,6 @@
  */
 int print_c(va_list ap)
 {
-	int c;
 	int c = va_arg(ap, int);
 
 	return (_putchar(c));
@@ -35,7 +34,7 @@ int print_s(va_list ap)
  * @ap: list
  * Return: num of parameter
  */
-int print_percent(va_list ap)
+int print_percent(__attribute__((unused))va_list ap)
 {
-	_putchar('%');
+	return (putchar('%'));
 }

@@ -16,7 +16,7 @@ int print_d(va_list ap)
 	if (dgt < 0)
 	{
 		abs_n = (dgt * -1);
-		count = _puttchar(45);
+		count = _putchar(45);
 
 	}
 	else

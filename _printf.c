@@ -28,16 +28,14 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				count += _putchar(format[i]);
-				i += 2;
+				i++;
 			}
 			else
 			{
 				x = get_func(format[i + 1]);
 				if (x)
-					count += m(args);
-				else
-					count = _putchar(format[i]) + _putchar(format[i + 1]);
-				i += 2;
+					count += (_putchar(format[i]) + _putchar(format[i + 1]));
+				i++;
 			}
 		}
 		else
@@ -46,6 +44,6 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
-	va_end(args);
+	va_end(ap);
 	return (count);
 }
