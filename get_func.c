@@ -2,7 +2,7 @@
 
 /**
  * get_func - searches for the specifier
- * @x: variable to the function
+ * @s: variable to the function
  * Return: The function
  */
 int (*get_func(char s))(va_list)
