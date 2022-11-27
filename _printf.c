@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+
 
 /**
  * _printf - creates printf function
@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		i = 0;
 		if (format[0] == '%' && format[1] == '\0')
 			return (-1);
-		while (format != NULL && format[i] != '\0')
+		while (format[i] != NULL && format[i] != '\0')
 		{
 			if (format[i] == '%')
 			{
