@@ -20,10 +20,10 @@ int (*get_func(char s))(va_list)
 
 	while (arr[i].spec != NULL)
 	{
-		i++;
 
 		if (*arr[i].spec == s)
 			return (arr[i].f);
+		i++;
 	}
 	return (NULL);
 }

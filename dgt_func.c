@@ -29,7 +29,7 @@ int print_d(va_list ap)
 		aux_n /= 10;
 		i *= 10;
 	}
-	while (aux_n >= 1)
+	while (i >= 1)
 	{
 		count += _putchar(((abs_n / i) % 10) + '0');
 		i /= 10;

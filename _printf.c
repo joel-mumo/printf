@@ -3,40 +3,40 @@
 
 /**
  * _printf - creates printf function
- * @format: An array of pointers
- * Return: Number of characters printed
+ * @format: an array of pointers
+ * Return: numberof characters printed
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, i;
+	int count = 0,i;
 	int (*x)(va_list);
-	va_list ap;
+	va_list(ap);
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(ap, format);
 
 	i = 0;
-	if (format[0] == '%' && format[1] == '\0')
-		return (-1);
 
+	if(format[0] == '%' && format[1] == '\0')
+		return (-1);
 	while (format != NULL && format[i] != '\0')
 	{
-
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '%')
+			if(format[i + 1] == '%')
 			{
 				count += _putchar(format[i]);
-				i++;
+				i+=2;
 			}
 			else
 			{
 				x = get_func(format[i + 1]);
 				if (x)
-					count += (_putchar(format[i]) + _putchar(format[i + 1]));
-				i++;
+					count += x(ap);
+				else
+					count = _putchar(format[i]) + _putchar(format[i + 1]);
+				i+=2;
 			}
 		}
 		else
@@ -44,8 +44,7 @@ int _printf(const char *format, ...)
 			count += _putchar(format[i]);
 			i++;
 		}
-		i++;
 	}
 	va_end(ap);
-	return (count);
+	return(count);
 }
