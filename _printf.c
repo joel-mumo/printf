@@ -4,47 +4,46 @@
 /**
  * _printf - creates printf function
  * @format: an array of pointers
- * Return: numberof characters printed
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int count = 0,i;
-	int (*x)(va_list);
-	va_list(ap);
-
-	if (format == NULL)
-		return (-1);
-	va_start(ap, format);
-
-	i = 0;
-
-	if(format[0] == '%' && format[1] == '\0')
-		return (-1);
-	while (format != NULL && format[i] != '\0')
+	if (format != NULL)
 	{
-		if (format[i] == '%')
+		int count = 0, i;
+		int (*x)(va_list);
+		va_list ap;
+
+		va_start(ap, format);
+		i = 0;
+		if (format[0] == '%' && format[1] == '\0')
+			return (-1);
+		while (format != NULL && format[i] != '\0')
 		{
-			if(format[i + 1] == '%')
+			if (format[i] == '%')
 			{
-				count += _putchar(format[i]);
-				i+=2;
+				if (format[i + 1] == '%')
+				{
+					count += _putchar(format[i]);
+					i += 2;
+				}
+				else
+				{
+					x = get_func(format[i + 1]);
+					if (x)
+						count += x(ap);
+					else
+						count = _putchar(format[i]) + _putchar(format[i + 1]);
+					i += 2;
+				}
 			}
 			else
 			{
-				x = get_func(format[i + 1]);
-				if (x)
-					count += x(ap);
-				else
-					count = _putchar(format[i]) + _putchar(format[i + 1]);
-				i+=2;
+				count += _putchar(format[i]);
+				i++;
 			}
 		}
-		else
-		{
-			count += _putchar(format[i]);
-			i++;
-		}
-	}
-	va_end(ap);
-	return(count);
+		va_end(ap);
+		return (count);
+	} return (-1);
 }
