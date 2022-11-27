@@ -5,22 +5,22 @@
 
 /**
  * _printf - creates printf function
- * @format: an array of pointers
+ * @format: the identifier to look for
  * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	if (format != NULL)
 	{
-		int count = 0, i;
+		int count = 0, i = 0;
 		int (*x)(va_list);
 		va_list ap;
 
-		va_start(ap, format);
-		i = 0;
+		va_start(ap, format)
+
 		if (format[0] == '%' && format[1] == '\0')
 			return (-1);
-		while (format[i] != NULL && format[i] != '\0')
+		while (format[i] != '\0')
 		{
 			if (format[i] == '%')
 			{
