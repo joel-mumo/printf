@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 
@@ -19,7 +20,7 @@ int _printf(const char *format, ...)
 		i = 0;
 		if (format[0] == '%' && format[1] == '\0')
 			return (-1);
-		while (format[i] != '\0')
+		while (format != NULL && format[i] != '\0')
 		{
 			if (format[i] == '%')
 			{
@@ -34,7 +35,7 @@ int _printf(const char *format, ...)
 					if (x)
 						count += x(ap);
 					else
-						count = (_putchar(format[i]) + _putchar(format[i + 1]));
+						count = _putchar(format[i]) + _putchar(format[i + 1]);
 					i += 2;
 				}
 			}
