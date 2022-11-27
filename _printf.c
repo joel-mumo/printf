@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					x = get_func1(format[i + 1]);
+					x = get_func(format[i + 1]);
 					if (x)
 						count += x(ap);
 					else
