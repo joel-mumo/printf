@@ -20,7 +20,7 @@ typedef struct op
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int (*get_func(char x))(va_list);
+int (*get_func(char s))(va_list);
 int print_c(va_list ap);
 int print_s(va_list ap);
 int print_d(va_list ap);
