@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
 /**
  * _printf - creates printf function
  * @format: the identifier to look for
@@ -35,7 +34,7 @@ int _printf(const char *format, ...)
 					if (x)
 						count += x(ap);
 					else
-						count = _putchar(format[i]) + _putchar(format[i + 1]);
+						count = (_putchar(format[i]) + _putchar(format[i + 1]));
 					i += 2;
 				}
 			}
