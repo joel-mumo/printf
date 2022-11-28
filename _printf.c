@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
 
 /**
  * _printf - creates printf function
